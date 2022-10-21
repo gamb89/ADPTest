@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.10" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ADPTest.Application\ADPTest.Application.csproj" />
+    <ProjectReference Include="..\ADPTest.Domain\ADPTest.Domain.csproj" />
+    <ProjectReference Include="..\ADPTest.Repository\ADPTest.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
