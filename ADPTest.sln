@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPTest.API", "ADPTest.API\ADPTest.API.csproj", "{C7ECCBD6-0295-409F-838B-AEFCA60489FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADPTest.API", "ADPTest.API\ADPTest.API.csproj", "{C7ECCBD6-0295-409F-838B-AEFCA60489FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPTest.Domain", "ADPTest.Domain\ADPTest.Domain.csproj", "{1FE2690E-7CAA-4A15-8373-FA3881CF86CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADPTest.Domain", "ADPTest.Domain\ADPTest.Domain.csproj", "{1FE2690E-7CAA-4A15-8373-FA3881CF86CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPTest.Repository", "ADPTest.Repository\ADPTest.Repository.csproj", "{1844F25E-CA26-4ED5-87D6-E9A2AD3CA601}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADPTest.Repository", "ADPTest.Repository\ADPTest.Repository.csproj", "{1844F25E-CA26-4ED5-87D6-E9A2AD3CA601}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPTest.Application", "ADPTest.Application\ADPTest.Application.csproj", "{5418225D-3DEB-471B-99B9-597B9F57B02E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADPTest.Application", "ADPTest.Application\ADPTest.Application.csproj", "{5418225D-3DEB-471B-99B9-597B9F57B02E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPTest.ConsoleApp", "ADPTest.ConsoleApp\ADPTest.ConsoleApp.csproj", "{A8BFFCB3-98F2-45B6-AC64-774A265B3E38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADPTest.ConsoleApp", "ADPTest.ConsoleApp\ADPTest.ConsoleApp.csproj", "{A8BFFCB3-98F2-45B6-AC64-774A265B3E38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPTest.Tests", "ADPTest.Tests\ADPTest.Tests.csproj", "{E910D8F4-7524-44BD-89CE-AF171650CC48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A8BFFCB3-98F2-45B6-AC64-774A265B3E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8BFFCB3-98F2-45B6-AC64-774A265B3E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8BFFCB3-98F2-45B6-AC64-774A265B3E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E910D8F4-7524-44BD-89CE-AF171650CC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E910D8F4-7524-44BD-89CE-AF171650CC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E910D8F4-7524-44BD-89CE-AF171650CC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E910D8F4-7524-44BD-89CE-AF171650CC48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

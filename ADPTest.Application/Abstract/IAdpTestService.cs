@@ -9,6 +9,8 @@ namespace ADPTest.Application.Abstract
 {
     public interface IAdpTestService
     {
-        Task<ResponseObjectDto> Calculate(bool save = false);
+        Task<ResponseObjectDto> ExecuteOperation(bool save = false);
+
+        double GetOperationResult(double left, double right, string operation);
     }
 }

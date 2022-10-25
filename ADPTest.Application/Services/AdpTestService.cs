@@ -14,14 +14,13 @@ namespace ADPTest.Application.Services
 {
     public class ADPTestService : IAdpTestService
     {
-        protected readonly IAdpTestRepository _repository;
-
-        public ADPTestService(IAdpTestRepository repository)
+       
+        public ADPTestService()
         {
-            _repository = repository;
+         
         }
 
-        public async Task<ResponseObjectDto> Calculate(bool save = false)
+        public async Task<ResponseObjectDto> ExecuteOperation(bool save = false)
         {
             //return object
             ResponseObjectDto dto;
@@ -31,14 +30,8 @@ namespace ADPTest.Application.Services
 
             if (task != null)
             {
-                this.GetOperationResult(ref task);
+                task.Result = this.GetOperationResult(task.Left, task.Right, task.Operation);
 
-                // check if need to save in the database (BONUS)
-                if(save)
-                {
-                   await _repository.SaveResult(task); 
-                }
-                
                 // Post Result
                 using (var httpClient = new HttpClient())
                 {
@@ -50,7 +43,8 @@ namespace ADPTest.Application.Services
                     dto = new ResponseObjectDto()
                     {
                         StatusCode = response.StatusCode.ToString(),
-                        Message = response.IsSuccessStatusCode ? "Success" : await response.Content.ReadAsStringAsync()
+                        Message = response.IsSuccessStatusCode ? "Success" : await response.Content.ReadAsStringAsync(),
+                        Result = task.Result 
                     };
 
                     return dto;
@@ -58,16 +52,13 @@ namespace ADPTest.Application.Services
                 }
             }
             else
-                return dto = new ResponseObjectDto()
-                {
-                    Message = "Values not found",
-                    StatusCode = "404"
-                };
-
+                return new ResponseObjectDto() { Message = "Task Not Found", StatusCode = "400" }; 
         }
 
-        private async Task<TaskResult> GetTask(bool save = false)
+
+        private async Task<TaskResult?> GetTask(bool save = false)
         {
+
             using (var httpClient = new HttpClient())
             {
                 var url = @"https://interview.adpeai.com/api/v1/get-task";
@@ -80,33 +71,39 @@ namespace ADPTest.Application.Services
                     var json = await response.Content.ReadAsStringAsync();
                     var task = JsonConvert.DeserializeObject<TaskResult>(json);
 
-                    return task;
+                    return task; 
                 }
                 else
                     return null;
             }
         }
 
-        private void GetOperationResult(ref TaskResult task)
+        public double GetOperationResult(double left, double right, string operation)
         {
-            switch (task.Operation.ToUpper())
+            double result = 0; 
+            switch (operation.ToUpper())
             {
                 case "SUBTRACTION":
-                    task.Result = task.Left - task.Right;
+                    result = left - right; ;
                     break;
                 case "ADDITION":
-                    task.Result = task.Left + task.Right;
+                    result = left + right; 
                     break;
                 case "MULTIPLICATION":
-                    task.Result = task.Left * task.Right;
+                    result = left * right;
                     break;
                 case "DIVISION":
-                    task.Result = task.Left / task.Right;
+                    result = left / right;
+                    break;
+                case "REMAINDER":
+                    result = left % right;
                     break;
                 default:
-                    task.Result = 0;
+                    result = 0;
                     break;
             }
+
+            return result; 
         }
     }
 }
